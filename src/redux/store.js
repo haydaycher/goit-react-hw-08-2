@@ -14,14 +14,14 @@ import storage from "redux-persist/lib/storage";
 
 import contactsReducer from "../redux/contacts/slice";
 import filtersReducer from "../redux/filters/slice";
-import authReduser from "../redux/auth/slice";
+import authReducer from "../redux/auth/slice";
 
 const persistAuthConfig = {
   key: "jwt-token",
   storage,
 };
 
-const persistedAuthReducer = persistReducer(persistAuthConfig, authReduser);
+const persistedAuthReducer = persistReducer(persistAuthConfig, authReducer);
 
 export const store = configureStore({
   reducer: {

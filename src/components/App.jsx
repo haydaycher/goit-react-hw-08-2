@@ -17,6 +17,7 @@ const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
 export default function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);

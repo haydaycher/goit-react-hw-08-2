@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations"; // Переконайтеся, що шлях вірний
 import { useId } from "react";
 
 // Регулярний вираз для перевірки телефонного номера
@@ -21,8 +21,6 @@ const validationSchema = Yup.object().shape({
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-
-  // Використання useId для унікальних id
   const nameFieldId = useId();
   const numberFieldId = useId();
 
@@ -43,7 +41,7 @@ export const ContactForm = () => {
             <span>Name</span>
           </label>
           <Field
-            id={nameFieldId} // Додаємо id для поля
+            id={nameFieldId}
             className={css.inputError}
             name="name"
             type="text"
@@ -55,7 +53,7 @@ export const ContactForm = () => {
             <span>Number</span>
           </label>
           <Field
-            id={numberFieldId} // Додаємо id для поля
+            id={numberFieldId}
             className={css.inputError}
             name="number"
             type="text"
