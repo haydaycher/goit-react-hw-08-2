@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; // Додано імпорт React
+import React, { useEffect } from "react";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import ContactList from "../../components/ContactList/ContactList";
@@ -21,7 +21,8 @@ export default function ContactsPage() {
       try {
         await dispatch(fetchContacts());
       } catch (err) {
-        console.error("Не вдалося завантажити контакти:", err); 
+        console.error("Не вдалося завантажити контакти:", err);
+      } // Закриття блоку catch
     };
     fetchData();
   }, [dispatch]);
@@ -30,8 +31,7 @@ export default function ContactsPage() {
     <div className={css.App}>
       <h1 className={css.AppTitle}>Телефонний довідник</h1>
       {loading && <Loader>Завантаження...</Loader>}
-      {error && <Error>Помилка завантаження контактів: {error}</Error>}{" "}
-      {/* Відображення деталей помилки */}
+      {error && <Error>Помилка завантаження контактів: {error}</Error>}
       <ContactForm />
       <SearchBox />
       <ContactList />
