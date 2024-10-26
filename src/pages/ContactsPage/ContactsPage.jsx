@@ -21,8 +21,7 @@ export default function ContactsPage() {
       try {
         await dispatch(fetchContacts());
       } catch (err) {
-        console.error("Не вдалося завантажити контакти:", err); // Логування помилок
-      }
+        console.error("Не вдалося завантажити контакти:", err); 
     };
     fetchData();
   }, [dispatch]);
